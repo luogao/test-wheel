@@ -9,7 +9,7 @@
       </li>
     </ul>
     <ul>
-      <li class="dynamic" v-for="(itme,index) in testdata" :key="index">
+      <li class="dynamic" :data-dylist="index" v-for="(itme,index) in testdata" :key="index">
         {{itme}}
       </li>
     </ul>
@@ -39,7 +39,7 @@ export default {
       direction: null,
       inOrOut: null,
       dynamicList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      testdata: []
+      testdata: [],
     }
   },
   components: {
@@ -89,7 +89,8 @@ export default {
       vm.direction = direction
       vm.inOrOut = 'Out'
     })
-    vm.dynamicListFn(vm.dynamicList)
+    // vm.dynamicListFn(vm.dynamicList)
+    vm.testdataFn()
   },
   methods: {
     getData: function(data) {
@@ -106,22 +107,36 @@ export default {
     sendSyncFn: function(item) {
       item.needSync = !item.needSync
     },
-    dynamicListFn: function(brr) {
+    // dynamicListFn: function(brr) {
+    //   const vm = this
+    //   const arr = []
+    //   const output = (i) => new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       arr.push(i)
+    //       resolve(arr);
+    //     }, 500 * i);
+    //   });
+    //   // 生成全部的异步操作
+    //   for (var i = 0; i < brr.length; i++) {
+    //     output(brr[i]).then((data) => {
+    //       vm.testdata = data
+    //     })
+    //   }
+    // }
+    testdataFn: function() {
       const vm = this
-      const arr = []
-      const output = (i) => new Promise((resolve) => {
-        setTimeout(() => {
-          arr.push(i)
-          resolve(arr);
-        }, 500 * i);
-      });
-      // 生成全部的异步操作
-      for (var i = 0; i < brr.length; i++) {
-        output(brr[i]).then((data) => {
-          vm.testdata = data
-        })
-      }
-    }
+      var i = 0
+      var arr = []
+      var timer = setInterval(function() {
+        vm.testdata.push(vm.dynamicList[i])
+        i++
+        if (i === vm.dynamicList.length) {
+          clearInterval(timer)
+          i = 0
+        }
+      }, 300)
+
+    },
   },
 }
 </script>
@@ -129,27 +144,47 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @keyframes flash {
-  from,
-  to {
-    opacity: 0.4;
+  0% {
+    opacity: 0.0;
+    height: 0;
   }
   50% {
-    opacity: 0.1;
+    opacity: 0.5;
+    height: 10px;
   }
   25%,
   75% {
-    opacity: 0.75;
+    opacity: 1;
+    height: auto;
   }
 }
 
-li.dynamic {
-  animation: flash 0.5s ;
-  background-color: #ccc;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-  display: block !important;
-  margin: 10px 0 !important;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    height: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    height: 30px;
+    transform: none;
+  }
 }
+li.dynamic {
+  animation: fadeInDown 0.3s;
+  background-color: #ccc;
+  transition: all 0.3s;
+  overflow: hidden;
+  display: block !important;
+  height: 30px;
+  text-align: center;
+  line-height:30px;
+  margin: 10px 0 !important;
+  opacity: 1;
+}
+
 
 .content {
   background: #797979;
