@@ -19,13 +19,16 @@
     </div>
     </ul>
     <progressbar></progressbar>
+    <photo-file-uploader ref="photoMedia" @upload="upload" :maxWidth=400></photo-file-uploader>
+    <button @click="stopMedia">停止</button>
   </div>
 </template>
 
 <script>
-import countUp from '@/components/countUp'
-import progressbar from '@/components/progressbar'
-import qrBarcode from '@/components/QrBarcode'
+import countUp from '@/components/countUp';
+import progressbar from '@/components/progressbar';
+import qrBarcode from '@/components/QrBarcode';
+import photoFileUploader from '@/components/photoFileUploader';
 export default {
   name: 'hello',
   data() {
@@ -45,7 +48,8 @@ export default {
   components: {
     countUp,
     qrBarcode,
-    progressbar
+    progressbar,
+    photoFileUploader
   },
   filters: {
     toTextDirection: function(val) {
@@ -93,6 +97,12 @@ export default {
     vm.testdataFn()
   },
   methods: {
+    stopMedia:function(){
+      this.$refs.photoMedia.stopMediaFn()
+    },
+    upload:function(data){
+      console.log(data)
+    },
     getData: function(data) {
       console.log(data)
     },
@@ -165,13 +175,13 @@ export default {
     height: 0;
     transform: translate3d(0, -100%, 0);
   }
-
   to {
     opacity: 1;
     height: 30px;
     transform: none;
   }
 }
+
 li.dynamic {
   animation: fadeInDown 0.3s;
   background-color: #ccc;
@@ -180,11 +190,10 @@ li.dynamic {
   display: block !important;
   height: 30px;
   text-align: center;
-  line-height:30px;
+  line-height: 30px;
   margin: 10px 0 !important;
   opacity: 1;
 }
-
 
 .content {
   background: #797979;
