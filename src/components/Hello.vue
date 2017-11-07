@@ -21,6 +21,8 @@
     <progressbar></progressbar>
     <photo-file-uploader ref="photoMedia" @upload="upload" :maxWidth=400></photo-file-uploader>
     <button @click="stopMedia">停止</button>
+    <button @click="sidetoggle = !sidetoggle">toggle</button>
+    <side-block :side-open="sidetoggle"></side-block>
   </div>
 </template>
 
@@ -29,6 +31,7 @@ import countUp from '@/components/countUp';
 import progressbar from '@/components/progressbar';
 import qrBarcode from '@/components/QrBarcode';
 import photoFileUploader from '@/components/photoFileUploader';
+import sideBlock from '@/components/sideBlock';
 export default {
   name: 'hello',
   data() {
@@ -43,13 +46,15 @@ export default {
       inOrOut: null,
       dynamicList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       testdata: [],
+      sidetoggle:false
     }
   },
   components: {
     countUp,
     qrBarcode,
     progressbar,
-    photoFileUploader
+    photoFileUploader,
+    sideBlock
   },
   filters: {
     toTextDirection: function(val) {
