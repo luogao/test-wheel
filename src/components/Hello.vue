@@ -47,7 +47,7 @@ export default {
       inOrOut: null,
       dynamicList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
       testdata: [],
-      sidetoggle:false
+      sidetoggle: false
     }
   },
   components: {
@@ -103,16 +103,16 @@ export default {
     vm.testdataFn()
   },
   methods: {
-    sideOpenFn(){
+    sideOpenFn() {
       this.$refs.sideBlock.openSideBlock()
     },
-    sideCloseFn(){
+    sideCloseFn() {
       this.$refs.sideBlock.closeSideBlock()
     },
-    stopMedia:function(){
+    stopMedia: function() {
       this.$refs.photoMedia.stopMediaFn()
     },
-    upload:function(data){
+    upload: function(data) {
       console.log(data)
     },
     getData: function(data) {

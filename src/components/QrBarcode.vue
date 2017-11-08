@@ -1,5 +1,6 @@
 <template>
     <div>
+        <v-text-field label="Code Text" v-model="code"></v-text-field>
         <qrcode :text="code"></qrcode>
         <barcode :value="code" height="50" width="1"></barcode>
     </div>
@@ -10,15 +11,15 @@ import qrcode from 'vue-qrcode-component'
 export default {
     data() {
         return {
-            code:'fsafasdf ',
-            nihao:'111'
+            code: 'fsafasdf',
+            nihao: '111'
         }
     },
     watch: {
 
     },
     props: {
-        
+
     },
     mounted() {
         var vm = this

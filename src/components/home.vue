@@ -19,7 +19,8 @@ export default {
   },
   beforeDestroy () {
     var vm = this;
-    clearInterval(vm.timer )
+    if(vm.timer)
+    clearInterval(vm.timer)
   },
   filters: {
   },
@@ -28,7 +29,7 @@ export default {
   },
   mounted() {
     var vm = this
-    vm.test()
+    // vm.test()
   },
   methods: {
       test(){
@@ -98,12 +99,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .welcomeContainer{}
-
     .welcome{
         font-size: 168px;
         font-weight: 100;
-        color:#fff;
-        
+        color:#000;
     }
 </style>

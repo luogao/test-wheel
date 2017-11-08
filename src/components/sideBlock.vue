@@ -1,17 +1,17 @@
 <template>
     <div>
         <div class="sideBlockContainer" :style="containerPosition" v-if="isOpen">
-            
+
         </div>
-         <v-btn color="primary" @click="openSideBlock()">Open</v-btn>
-         <v-btn color="warning" @click="closeSideBlock()">Close</v-btn>
+        <v-btn color="primary" @click="openSideBlock()">Open</v-btn>
+        <v-btn color="warning" @click="closeSideBlock()">Close</v-btn>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            isOpen:false
+            isOpen: false
         }
     },
     watch: {
@@ -29,7 +29,7 @@ export default {
 
     },
     methods: {
-        openSideBlock(){
+        openSideBlock() {
             var vm = this;
             if (!vm.isOpen) {
                 vm.isOpen = true;
@@ -38,7 +38,7 @@ export default {
                 }, 300);
             }
         },
-        closeSideBlock(){
+        closeSideBlock() {
             var vm = this;
             if (vm.isOpen) {
                 $('.sideBlockContainer').removeClass('open').addClass('close')
@@ -75,14 +75,17 @@ export default {
     top: 0;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .3);
     transform: translateX(100%);
-    animation:rightBlockOpen 0.3s ease-in;
+    animation: rightBlockOpen 0.3s ease-in;
 }
-.sideBlockContainer.open{
-        transform: translateX(0);
+
+.sideBlockContainer.open {
+    transform: translateX(0);
 }
-.sideBlockContainer.close{
-    animation:rightBlockClose 0.3s ease-out;
+
+.sideBlockContainer.close {
+    animation: rightBlockClose 0.3s ease-out;
 }
+
 @keyframes rightBlockOpen {
     from {
         transform: translateX(100%);
@@ -93,6 +96,7 @@ export default {
         transform: translateX(0);
     }
 }
+
 @keyframes rightBlockClose {
     from {
         transform: translateX(0%);
