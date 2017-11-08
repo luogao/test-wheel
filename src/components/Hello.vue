@@ -13,7 +13,7 @@
         {{itme}}
       </li>
     </ul>
-    <!-- <qr-barcode></qr-barcode> -->
+    <qr-barcode></qr-barcode>
     <div class="testHover">
       {{direction | toTextDirection}}{{inOrOut}}
     </div>
@@ -21,8 +21,9 @@
     <progressbar></progressbar>
     <photo-file-uploader ref="photoMedia" @upload="upload" :maxWidth=400></photo-file-uploader>
     <button @click="stopMedia">停止</button>
-    <button @click="sidetoggle = !sidetoggle">toggle</button>
-    <side-block :side-open="sidetoggle"></side-block>
+    <button @click="sideOpenFn()">open</button>
+    <button @click="sideCloseFn()">close</button>
+    <side-block ref="sideBlock"></side-block>
   </div>
 </template>
 
@@ -102,6 +103,12 @@ export default {
     vm.testdataFn()
   },
   methods: {
+    sideOpenFn(){
+      this.$refs.sideBlock.openSideBlock()
+    },
+    sideCloseFn(){
+      this.$refs.sideBlock.closeSideBlock()
+    },
     stopMedia:function(){
       this.$refs.photoMedia.stopMediaFn()
     },

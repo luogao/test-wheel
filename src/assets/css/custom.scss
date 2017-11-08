@@ -1,0 +1,412 @@
+.mr15 {
+  margin-right: 15px !important;
+}
+
+.pr15 {
+  padding-right: 15px !important;
+}
+
+.pl15 {
+  padding-left: 15px !important;
+}
+
+.pr10 {
+  padding-right: 10px !important;
+}
+
+.pl10 {
+  padding-left: 10px !important;
+}
+
+.mr10 {
+  margin-right: 10px !important;
+}
+
+.ml10 {
+  margin-left: 10px !important;
+}
+
+.pt15 {
+  padding-top: 15px !important;
+}
+
+.pt10 {
+  padding-top: 10px !important;
+}
+
+.ptblr0 {
+  padding: inherit !important;
+}
+
+.pt10 {
+  padding-top: 10px !important;
+}
+
+.plr0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.mlr0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.prl15 {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb15 {
+  margin-bottom: 15px !important;
+}
+
+.mt10 {
+  margin-top: 10px !important;
+}
+
+.mt25 {
+  margin-top: 25px !important;
+}
+
+.borderNone {
+  border: none !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pb10 {
+  padding-bottom: 10px !important;
+}
+
+.pb15 {
+  padding-bottom: 15px !important;
+}
+
+.ml15 {
+  margin-left: 15px !important;
+}
+
+.ml5 {
+  margin-left: 5px !important;
+}
+
+.plr15 {
+  padding: 0 15px !important;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.pt20 {
+  padding-top: 20px !important;
+}
+
+.pl30 {
+  padding-left: 30px !important;
+}
+
+.p10 {
+  padding: 10px !important;
+}
+
+.p5 {
+  padding: 5px !important;
+}
+
+.fontsize12 {
+  font-size: 12px;
+}
+
+.cursorP {
+  cursor: pointer !important;
+}
+
+.inlineBlock {
+  display: inline-block !important;
+}
+
+.bb {
+  border-bottom: 1px solid #eee;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.textUnderLine {
+  background: #ff7134;
+  border: 1px solid #ff7134;
+  width: 80px;
+  margin: 20px 0;
+}
+
+@keyframes bounceInLeft {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation: bounceInLeft 1s;
+}
+
+
+.font-honjo {
+  color: #ff7134 !important;
+}
+
+[tooltip] {
+  position: relative;
+}
+
+[tooltip]::before,
+[tooltip]::after {
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  /* opinions */
+  text-transform: none;
+  font-size: .9em;
+}
+
+[tooltip]::before {
+  content: '';
+  z-index: 1001;
+  border: 5px solid transparent;
+}
+
+[tooltip]::after {
+  content: attr(tooltip);
+  /* magic! */
+  z-index: 1000;
+  /* most of the rest of this is opinion */
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  /* 
+    Let the content set the size of the tooltips 
+    but this will also keep them from being obnoxious
+    */
+  min-width: 3em;
+  /* visible design of the tooltip bubbles */
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+}
+
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+
+
+/* don't show empty tooltips */
+
+[tooltip='']::before,
+[tooltip='']::after {
+  display: none !important;
+}
+
+
+
+/* ONLY the ::before */
+
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+}
+
+
+
+/* ONLY the ::after */
+
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+  bottom: calc(100% + 5px);
+}
+
+
+
+/* Both ::before & ::after */
+
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+  left: 50%;
+  transform: translate(-50%, -.5em);
+}
+
+[tooltip][flow^="down"]::before {
+  top: 100%;
+  border-top-width: 0;
+  border-bottom-color: #333;
+}
+
+[tooltip][flow^="down"]::after {
+  top: calc(100% + 5px);
+}
+
+[tooltip][flow^="down"]::before,
+[tooltip][flow^="down"]::after {
+  left: 50%;
+  transform: translate(-50%, .5em);
+}
+
+[tooltip][flow^="left"]::before {
+  top: 50%;
+  border-right-width: 0;
+  border-left-color: #333;
+  left: calc(0em - 5px);
+  transform: translate(-.5em, -50%);
+}
+
+[tooltip][flow^="left"]::after {
+  top: 50%;
+  right: calc(100% + 5px);
+  transform: translate(-.5em, -50%);
+}
+
+[tooltip][flow^="right"]::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333;
+  right: calc(0em - 5px);
+  transform: translate(.5em, -50%);
+}
+
+[tooltip][flow^="right"]::after {
+  top: 50%;
+  left: calc(100% + 5px);
+  transform: translate(.5em, -50%);
+}
+
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    transform: translate(0, -50%);
+  }
+}
+
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+[tooltip][flow^="left"]:hover::before,
+[tooltip][flow^="left"]:hover::after,
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+  animation: tooltips-horz 300ms ease-out forwards;
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #ff7134;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.wow {
+  visibility: hidden;
+}
+
+.text-blue-darker {
+  color: #191919;
+}
+textarea::-webkit-scrollbar  {  
+    display: none;
+    opacity: 0;
+    transition:all 0.3s;
+    width: 7px;  
+    height: 16px;  
+    border-radius: 3px;
+    background-color: #ccc;  
+} 
+textarea::-webkit-scrollbar-thumb{  
+    border-radius: 3px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #aaa; 
+    height: 3px;
+}  
+textarea:hover::-webkit-scrollbar{
+    display: block;
+    opacity: 1;
+    transition:all 0.3s;
+}

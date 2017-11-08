@@ -13,15 +13,16 @@
     "jquery": "^3.2.1",
     "jsbarcode": "^3.8.0",
     "node-sass": "^4.6.0",
-    "sass-loader": "^6.0.6",
     "vue": "^2.4.2",
     "vue-barcode": "^1.0.7",
     "vue-qrcode": "0.0.2",
     "vue-qrcode-component": "^2.1.1",
     "vue-router": "^2.7.0",
-    "vue-style-loader": "^3.0.3"
+    "vue-style-loader": "^3.0.3",
+    "vuetify": "^0.16.9"
   },
   "devDependencies": {
+    "sass-loader": "^6.0.6",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",
