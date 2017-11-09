@@ -27,6 +27,27 @@
                 <v-btn color="primary" left @click="testdataFn()">Load</v-btn>
                 <!-- <v-btn color="warning" @click="closeSideBlock()"></v-btn> -->
             </v-card>
+            <v-card class="mt25">
+                <v-toolbar color="dark" dark>
+                    <v-toolbar-side-icon></v-toolbar-side-icon>
+                    <v-toolbar-title>取随机字符串</v-toolbar-title>
+                </v-toolbar>
+                <code>
+                <pre>
+                    function randomString(len) {
+                        len = len || 32;
+                        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/ 　　
+                        var maxPos = $chars.length;　　
+                        var pwd = '';　　
+                        for (let i = 0; i < len; i++) {　　　　
+                            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));　　
+                        }　　
+                        return pwd;
+                    }
+                </pre>
+                </code>
+
+            </v-card>
         </v-flex>
     </v-layout>
 </template>
