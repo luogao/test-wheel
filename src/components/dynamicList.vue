@@ -46,7 +46,93 @@
                     }
                 </pre>
                 </code>
+            </v-card>
+            <v-card class="mt25">
+                <v-toolbar color="dark" dark>
+                    <v-toolbar-side-icon></v-toolbar-side-icon>
+                    <v-toolbar-title>js递归遍历树形结构找到指定内容</v-toolbar-title>
+                </v-toolbar>
+                <code>
+                <pre>
+                   function getArray(data, name) {
+                        for (var i in data) {
+                            if (data[i].name == name) {
+                                console.log(data[i])
+                                break;
+                            } else {
+                                getArray(data[i].children, name);
+                            }
+                        }
+                    }
+                </pre>
+                </code>
+            </v-card>
+            <v-card class="mt25">
+                <v-toolbar color="dark" dark>
+                    <v-toolbar-side-icon></v-toolbar-side-icon>
+                    <v-toolbar-title>js递归遍历树形结构找到指定内容</v-toolbar-title>
+                </v-toolbar>
+                <code>
+                <pre>
+                   export default {
+                        rightSideMove(options) {
+                            var handler = options.handler;
+                            var target = options.target;
+                            var wrapper = options.wrapper;
+                            var maxWidth = options.maxWidth || document.body.clientWidth;
+                            var minWdith = options.minWdith || 300;
+                            var eventWhileMove = options.eventWhileMove;
+                            var eventWhileStop = options.eventWhileStop;
+                            const _handler = $(handler);
+                            const _target = $(target);
+                            const _wrapper = $(wrapper);
+                            
+                            $(window).resize(function(event) {
+                                /* Act on the event */
+                                if (!_target.hasClass('rightSideBlockOpen')) {
+                                    return 
+                                }else{
+                                    _wrapper.width(document.body.clientWidth - _target.width())
+                                }
+                            });
 
+                            _handler.mousedown(function(ev) {
+                                var ev = ev || event; // 获取event对象，兼容性写法
+                                var mouseDownX = ev.clientX; // 鼠标按下时的位置
+                                var W = _target.width(); //获取目标宽度
+                                document.onmousemove = function(ev) {
+                                    var ev = ev || event;
+                                    var mouseMoveX = ev.clientX;
+                                    _target.width((mouseDownX - mouseMoveX) + W)
+                                    if (_target.width() >= maxWidth) {
+                                        _target.width(maxWidth);
+                                    }
+                                    if (_target.width() <= minWdith) {
+                                        _target.width(minWdith);
+                                    }
+                                    _wrapper.css({
+                                        transition: 'width 0s'
+                                    });
+                                    _wrapper.width(document.body.clientWidth - _target.width());
+                                    if (eventWhileMove != null) {
+                                        eventWhileMove()
+                                    }
+                                }
+                                document.onmouseup = function() {
+                                    document.onmousemove = null; // 释放全局捕获
+                                    _wrapper.css({
+                                        transition: 'width 0.3s'
+                                    });
+                                    if (eventWhileStop != null) {
+                                        eventWhileStop()
+                                    }
+                                }
+                                return false;
+                            })
+                        }
+                    }
+                </pre>
+                </code>
             </v-card>
         </v-flex>
     </v-layout>
