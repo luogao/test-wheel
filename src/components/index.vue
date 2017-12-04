@@ -79,7 +79,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: false,
+    drawer: true,
     items: [
       { icon: 'home', text: '主页', link: '/' },
       {
@@ -88,7 +88,8 @@ export default {
         text: '方法',
         model: false,
         children: [
-          { icon: 'list', text: '逐个加载的列表',link:'dynamicList'},
+          { icon: 'list', text: '逐个加载的列表',link:'/dynamicList'},
+          { icon: 'ac_unit', text: '雪花',link:'/snow'},
           { icon: 'settings_overscan', text: '检测鼠标滑入滑出方向' },
         ]
       },
@@ -110,6 +111,7 @@ export default {
         text: '样式',
         model: false,
         children: [
+          { icon: 'loop', text: '样式', link: '/css' },
         ]
       }
     ]

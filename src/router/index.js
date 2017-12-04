@@ -8,6 +8,12 @@ import qrBarcode from '@/components/QrBarcode';
 import photoFileUploader from '@/components/photoFileUploader';
 import sideBlock from '@/components/sideBlock';
 import dynamicList from '@/components/dynamicList';
+import css from '@/components/css';
+import snow from '@/components/snow';
+
+
+
+
 
 
 Vue.use(Router)
@@ -41,6 +47,16 @@ export default new Router({
     path: '/dynamicList',
     name: 'dynamicList',
     component: dynamicList
+  }, {
+    path: '/css',
+    name: 'css',
+    component: css
+  }, {
+    path: '/snow',
+    name: 'snow',
+    component: snow
   }],
+
+
   mode: 'history'
 })
