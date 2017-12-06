@@ -1,11 +1,5 @@
 <template>
-    <div>
-        <div class="sideBlockContainer" :style="containerPosition" v-if="isOpen">
-
-        </div>
-        <v-btn color="primary" @click="openSideBlock()">Open</v-btn>
-        <v-btn color="warning" @click="closeSideBlock()">Close</v-btn>
-    </div>
+    <div class="sideBlockContainer" :style="containerPosition" v-if="isOpen"></div>
 </template>
 <script>
 export default {
@@ -20,17 +14,37 @@ export default {
         rightSide: {
             default: true,
             type: Boolean
+        },
+        open:{
+            default: false,
+            type:Boolean
         }
     },
     mounted() {
         var vm = this
+        if(vm.open){
+            vm.openSideBlock()
+        }
     },
     created() {
 
     },
+    watch: {
+        'open':{
+            deep:true,
+            handler(val){
+                if(val && !this.isOpen){
+                    this.openSideBlock()
+                }else{
+                    this.closeSideBlock()
+                }
+            }
+        }
+    },
     methods: {
         openSideBlock() {
             var vm = this;
+            console.log('open')
             if (!vm.isOpen) {
                 vm.isOpen = true;
                 setTimeout(function() {
@@ -40,6 +54,7 @@ export default {
         },
         closeSideBlock() {
             var vm = this;
+            console.log('close')
             if (vm.isOpen) {
                 $('.sideBlockContainer').removeClass('open').addClass('close')
                 setTimeout(function() {

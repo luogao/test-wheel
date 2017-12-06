@@ -14,11 +14,10 @@ h1.css-text-loading:before {
   content: attr(data-text);
   position: absolute;
   overflow: hidden;
-  max-width: 7em;
+  max-width: 100%;
   white-space: nowrap;
   color: #fff;
-  animation: loading 8s linear;
-  animation-iteration-count: infinite;
+  animation: loading 1s linear infinite alternate;
 }
 @keyframes loading {
   0% {

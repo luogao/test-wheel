@@ -6,8 +6,9 @@ import router from './router'
 import Vuetify from 'vuetify'
 import ('vuetify/dist/vuetify.min.css')
 import '@/assets/css/custom.scss'
-
+import sidebar from '@/components/sidebar'
 Vue.use(Vuetify)
+Vue.use(sidebar)
 
 Vue.config.productionTip = false
 
