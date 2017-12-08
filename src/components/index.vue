@@ -91,6 +91,7 @@ export default {
           { icon: 'list', text: '逐个加载的列表',link:'/dynamicList'},
           { icon: 'ac_unit', text: '雪花',link:'/snow'},
           { icon: 'settings_overscan', text: '检测鼠标滑入滑出方向' },
+          { icon: 'view_module', text: 'Grid' ,link:'/grid'}
         ]
       },
       {

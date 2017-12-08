@@ -9,6 +9,7 @@ import sideBlock from '@/components/sidebar/sideBlock';
 import dynamicList from '@/components/dynamicList';
 import css from '@/components/css';
 import snow from '@/components/snow';
+import grid from '@/components/grid';
 
 
 
@@ -54,6 +55,10 @@ export default new Router({
     path: '/snow',
     name: 'snow',
     component: snow
+  }, {
+    path: '/grid',
+    name: 'grid',
+    component: grid
   }],
 
 
