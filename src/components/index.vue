@@ -83,8 +83,8 @@ export default {
     items: [
       { icon: 'home', text: '主页', link: '/' },
       {
-        icon: 'keyboard_arrow_up',
-        'icon-alt': 'keyboard_arrow_down',
+        icon: 'keyboard_arrow_down',
+        'icon-alt': 'keyboard_arrow_up',
         text: '方法',
         model: false,
         children: [
@@ -95,8 +95,8 @@ export default {
         ]
       },
       {
-        icon: 'keyboard_arrow_up',
-        'icon-alt': 'keyboard_arrow_down',
+        icon: 'keyboard_arrow_down',
+        'icon-alt': 'keyboard_arrow_up',
         text: '组件',
         model: true,
         children: [
@@ -107,8 +107,8 @@ export default {
         ]
       },
       {
-        icon: 'keyboard_arrow_up',
-        'icon-alt': 'keyboard_arrow_down',
+        icon: 'keyboard_arrow_down',
+        'icon-alt': 'keyboard_arrow_up',
         text: '样式',
         model: false,
         children: [
