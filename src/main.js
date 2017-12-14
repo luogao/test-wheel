@@ -7,6 +7,7 @@ import Vuetify from 'vuetify'
 import ('vuetify/dist/vuetify.min.css')
 import '@/assets/css/custom.scss'
 import sidebar from '@/components/sidebar'
+require('../static/js/prism.js')
 Vue.use(Vuetify)
 Vue.use(sidebar)
 

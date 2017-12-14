@@ -79,7 +79,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
     items: [
       { icon: 'home', text: '主页', link: '/' },
       {
